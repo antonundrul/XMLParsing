@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema elementFormDefault="qualified"
+           targetNamespace="http://localhost/medicins"
+           xmlns:medicins="http://localhost/medicins"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:element name="medicins">
+        <xsd:complexType>
+            <xsd:sequence>
+               <xsd:element name="medicine" type="medicine"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:complexType name="medicine">
+        <xsd:sequence>
+            <xsd:element name="name" type="xsd:string"/>
+            <xsd:element name="pharm" type="xsd:string"/>
+            <xsd:element name="group" type="medicins:group"/>
+            <xsd:element name="analog" type="xsd:string"/>
+            <xsd:element name="certificate" type="certificate"/>
+            <xsd:element name="price" type="price"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="medicine-id" use="required"/>
+    </xsd:complexType>
+    <xsd:simpleType name="medicine-id">
+        <xsd:restriction base="xsd:ID">
+            <xsd:pattern value="\m{1,20}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="group">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="antibiotic"/>
+            <xsd:enumeration value="analgetic"/>
+            <xsd:enumeration value="vitamins"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:complexType name="certificate">
+        <xsd:sequence>
+            <xsd:element name="certificate-number" type="xsd:string"/>
+            <xsd:element name="dateOfIssue" type="xsd:gYearMonth"/>
+            <xsd:element name="dateOfExpiration" type="xsd:gYearMonth"/>
+            <xsd:element name="registeringOrganization" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:simpleType name="price">
+        <xsd:restriction base="xsd:unsignedInt">
+            <xsd:minInclusive value="0"/>
+            <xsd:maxInclusive value="100000"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:complexType name="pill">
+        <xsd:complexContent>
+            <xsd:restriction base="medicine">
+                <xsd:sequence>
+                    <xsd:element name="dosage" type="xsd:nonNegativeInteger"/>
+                    <xsd:element name="amount" type="xsd:nonNegativeInteger"/>
+
+                </xsd:sequence>
+            </xsd:restriction>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="sirup">
+        <xsd:complexContent>
+            <xsd:restriction base="medicine">
+                <xsd:sequence>
+                    <xsd:element name="volume" type="xsd:nonNegativeInteger"/>
+                </xsd:sequence>
+            </xsd:restriction>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+
+    <xsd:element name="medicine" type="medicine" substitutionGroup="medicine"/>
+    <xsd:element name="pill" type="pill" substitutionGroup="medicins:medicine"/>
+    <xsd:element name="sirup" type="sirup" substitutionGroup="medicins:medicine"/>
+
+
+</xsd:schema>
