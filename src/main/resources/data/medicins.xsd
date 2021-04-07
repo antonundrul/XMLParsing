@@ -23,7 +23,7 @@
     </xsd:complexType>
     <xsd:simpleType name="medicine-id">
         <xsd:restriction base="xsd:ID">
-            <xsd:pattern value="\m{1,20}"/>
+            <xsd:pattern value="\'m'{1,20}"/>
         </xsd:restriction>
     </xsd:simpleType>
     <xsd:simpleType name="group">

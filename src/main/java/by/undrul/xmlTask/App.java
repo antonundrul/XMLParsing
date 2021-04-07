@@ -1,4 +1,4 @@
-package by.undrul;
+package by.undrul.xmlTask;
 
 /**
  * Hello world!
