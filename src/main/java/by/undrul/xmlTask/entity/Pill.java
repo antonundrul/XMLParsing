@@ -2,9 +2,13 @@ package by.undrul.xmlTask.entity;
 
 import java.util.Objects;
 
-public class Pill extends Medicine{
+public class Pill extends AbstractMedicine {
     private int amount;
     private int dosage;
+
+    public Pill() {
+        super();
+    }
 
     public Pill(String id, String name, String pharm, MedicineGroup group,
                 String analog, Certificate certificate, int price, int amount, int dosage) {
@@ -41,14 +45,23 @@ public class Pill extends Medicine{
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), amount, dosage);
+
+        int prime = 31;
+        int result = 1;
+
+        result = result * prime + super.hashCode();
+        result = result * prime + Integer.hashCode(amount);
+        result = result * prime + Integer.hashCode(dosage);
+
+        return result;
     }
 
     @Override
     public String toString() {
-        return "Pill{" +
-                "amount=" + amount +
-                ", dosage=" + dosage +
-                '}';
+        final StringBuilder sb = new StringBuilder("Pill{\n");
+        sb.append(" amount : ").append(amount).append('\n');
+        sb.append(" dosage : ").append(dosage).append('\n');
+        sb.append(super.toString());
+        return sb.toString();
     }
 }

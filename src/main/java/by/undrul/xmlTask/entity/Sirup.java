@@ -2,8 +2,11 @@ package by.undrul.xmlTask.entity;
 
 import java.util.Objects;
 
-public class Sirup extends Medicine{
+public class Sirup extends AbstractMedicine {
     private int volume;
+
+    public Sirup() {
+    }
 
     public Sirup(String id, String name, String pharm, MedicineGroup group,
                  String analog, Certificate certificate, int price, int volume) {
@@ -30,13 +33,21 @@ public class Sirup extends Medicine{
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), volume);
+
+        int prime = 31;
+        int result = 1;
+
+        result = result * prime + super.hashCode();
+        result = result * prime + Integer.hashCode(volume);
+
+        return result;
     }
 
     @Override
     public String toString() {
-        return "Sirup{" +
-                "volume=" + volume +
-                '}';
+        final StringBuilder sb = new StringBuilder("Sirup{\n");
+        sb.append(" volume : ").append(volume).append('\n');
+        sb.append(super.toString());
+        return sb.toString();
     }
 }

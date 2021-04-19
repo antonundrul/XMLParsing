@@ -1,77 +1,84 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<xsd:schema elementFormDefault="qualified"
-           targetNamespace="http://localhost/medicins"
-           xmlns:medicins="http://localhost/medicins"
-           xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <xsd:element name="medicins">
-        <xsd:complexType>
-            <xsd:sequence>
-               <xsd:element name="medicine" type="medicine"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:complexType name="medicine">
-        <xsd:sequence>
-            <xsd:element name="name" type="xsd:string"/>
-            <xsd:element name="pharm" type="xsd:string"/>
-            <xsd:element name="group" type="medicins:group"/>
-            <xsd:element name="analog" type="xsd:string"/>
-            <xsd:element name="certificate" type="certificate"/>
-            <xsd:element name="price" type="price"/>
-        </xsd:sequence>
-        <xsd:attribute name="id" type="medicine-id" use="required"/>
-    </xsd:complexType>
-    <xsd:simpleType name="medicine-id">
-        <xsd:restriction base="xsd:ID">
-            <xsd:pattern value="\'m'{1,20}"/>
-        </xsd:restriction>
-    </xsd:simpleType>
-    <xsd:simpleType name="group">
-        <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="antibiotic"/>
-            <xsd:enumeration value="analgetic"/>
-            <xsd:enumeration value="vitamins"/>
-        </xsd:restriction>
-    </xsd:simpleType>
-    <xsd:complexType name="certificate">
-        <xsd:sequence>
-            <xsd:element name="certificate-number" type="xsd:string"/>
-            <xsd:element name="dateOfIssue" type="xsd:gYearMonth"/>
-            <xsd:element name="dateOfExpiration" type="xsd:gYearMonth"/>
-            <xsd:element name="registeringOrganization" type="xsd:string"/>
-        </xsd:sequence>
-    </xsd:complexType>
-    <xsd:simpleType name="price">
-        <xsd:restriction base="xsd:unsignedInt">
-            <xsd:minInclusive value="0"/>
-            <xsd:maxInclusive value="100000"/>
-        </xsd:restriction>
-    </xsd:simpleType>
-    <xsd:complexType name="pill">
-        <xsd:complexContent>
-            <xsd:restriction base="medicine">
-                <xsd:sequence>
-                    <xsd:element name="dosage" type="xsd:nonNegativeInteger"/>
-                    <xsd:element name="amount" type="xsd:nonNegativeInteger"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.example.org/medicins"
+        xmlns:tns="http://www.example.org/medicins"
+        elementFormDefault="qualified">
+    <element name="medicins">
+        <complexType>
+            <sequence>
+               <element ref="tns:medicine"  maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
 
-                </xsd:sequence>
-            </xsd:restriction>
-        </xsd:complexContent>
-    </xsd:complexType>
-    <xsd:complexType name="sirup">
-        <xsd:complexContent>
-            <xsd:restriction base="medicine">
-                <xsd:sequence>
-                    <xsd:element name="volume" type="xsd:nonNegativeInteger"/>
-                </xsd:sequence>
-            </xsd:restriction>
-        </xsd:complexContent>
-    </xsd:complexType>
+    <complexType name="medicine">
+        <sequence>
+            <element name="name" type="string"/>
+            <element name="pharm" type="string"/>
+            <element name="group" type="tns:group"/>
+            <element name="analog" type="string"/>
+            <element name="certificate" type="tns:certificate"/>
+            <element name="price" type="tns:price"/>
+        </sequence>
+        <attribute name="id" type="tns:medicineID" use="required"/>
+        <attribute name="pharm-website" use="optional" default="http://www.example.org" />
+    </complexType>
+
+    <simpleType name="medicineID">
+        <restriction base="ID">
+            <pattern value="\w{1,20}"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="group">
+        <restriction base="string">
+            <enumeration value="ANTIBIOTIC"/>
+            <enumeration value="ANALGETIC"/>
+            <enumeration value="VITAMINS"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="certificate">
+        <sequence>
+            <element name="certificate-number" type="string"/>
+            <element name="date-of-issue" type="gYearMonth"/>
+            <element name="date-of-expiration" type="gYearMonth"/>
+            <element name="registering-organization" type="string"/>
+        </sequence>
+    </complexType>
+
+    <simpleType name="price">
+        <restriction base="unsignedInt">
+            <minInclusive value="0"/>
+            <maxInclusive value="100000"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="pill">
+        <complexContent>
+            <restriction base="tns:medicine">
+                <sequence>
+                    <element name="dosage" type="nonNegativeInteger"/>
+                    <element name="amount" type="nonNegativeInteger"/>
+                </sequence>
+            </restriction>
+        </complexContent>
+    </complexType>
+
+    <complexType name="sirup">
+        <complexContent>
+            <restriction base="tns:medicine">
+                <sequence>
+                    <element name="volume" type="nonNegativeInteger"/>
+                </sequence>
+            </restriction>
+        </complexContent>
+    </complexType>
 
 
-    <xsd:element name="medicine" type="medicine" substitutionGroup="medicine"/>
-    <xsd:element name="pill" type="pill" substitutionGroup="medicins:medicine"/>
-    <xsd:element name="sirup" type="sirup" substitutionGroup="medicins:medicine"/>
+    <element name="medicine" type="tns:medicine" substitutionGroup="tns:medicine"/>
+    <element name="pill" type="tns:pill" substitutionGroup="tns:medicine"/>
+    <element name="sirup" type="tns:sirup" substitutionGroup="tns:medicine"/>
 
 
-</xsd:schema>
+</schema>

@@ -1,6 +1,6 @@
 package by.undrul.xmlTask.exception;
 
-public class MedicineException extends Exception{
+public class MedicineException extends Exception {
     public MedicineException() {
         super();
     }
@@ -15,9 +15,5 @@ public class MedicineException extends Exception{
 
     public MedicineException(Throwable cause) {
         super(cause);
-    }
-
-    protected MedicineException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-        super(message, cause, enableSuppression, writableStackTrace);
     }
 }

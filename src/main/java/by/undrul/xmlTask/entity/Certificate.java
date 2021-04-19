@@ -9,6 +9,17 @@ public class Certificate {
     private YearMonth dateOfExpiration;
     private String registeringOrganization;
 
+    public Certificate(String certificateNumber, YearMonth dateOfIssue, YearMonth dateOfExpiration, String registeringOrganization) {
+        this.certificateNumber = certificateNumber;
+        this.dateOfIssue = dateOfIssue;
+        this.dateOfExpiration = dateOfExpiration;
+        this.registeringOrganization = registeringOrganization;
+    }
+
+    public Certificate() {
+
+    }
+
     public String getCertificateNumber() {
         return certificateNumber;
     }
@@ -54,16 +65,26 @@ public class Certificate {
 
     @Override
     public int hashCode() {
-        return Objects.hash(certificateNumber, dateOfIssue, dateOfExpiration, registeringOrganization);
+
+        int prime = 31;
+        int result = 1;
+
+        result = result * prime + certificateNumber.hashCode();
+        result = result * prime + dateOfIssue.hashCode();
+        result = result * prime + dateOfExpiration.hashCode();
+        result = result * prime + registeringOrganization.hashCode();
+
+        return result;
     }
 
     @Override
     public String toString() {
-        return "Certificate{" +
-                "certificateNumber='" + certificateNumber + '\'' +
-                ", dateOfIssue=" + dateOfIssue +
-                ", dateOfExpiration=" + dateOfExpiration +
-                ", registeringOrganization='" + registeringOrganization + '\'' +
-                '}';
+        final StringBuilder sb = new StringBuilder(" Certificate{\n");
+        sb.append("  certificate number : ").append(certificateNumber).append('\n');
+        sb.append("  date of issue : ").append(dateOfIssue).append('\n');
+        sb.append("  date of expiration : ").append(dateOfExpiration).append("\n");
+        sb.append("  registering organization : ").append(registeringOrganization).append('\n');
+        sb.append(" }");
+        return sb.toString();
     }
 }

@@ -1,18 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<medicins xmlns="http://localhost/medicins"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://localhost/medicins medicins.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<medicins xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://www.example.org/medicins"
+         xsi:schemaLocation="http://www.example.org/medicins medicins.xsd">
 
-    <pill id="m1">
+    <pill id="m1" pharm-website="http://www.example.org">
         <name>Azimed</name>
         <pharm>Kievmedproduct</pharm>
-        <group>antibiotic</group>
+        <group>ANTIBIOTIC</group>
         <analog>Azitromicin</analog>
         <certificate>
             <certificate-number>c123456</certificate-number>
-            <dateOfIssue>2020-09</dateOfIssue>
-            <dateOfExpiration>2023-05</dateOfExpiration>
-            <registeringOrganization>org1</registeringOrganization>
+            <date-of-issue>2020-09</date-of-issue>
+            <date-of-expiration>2023-05</date-of-expiration>
+            <registering-organization>org1</registering-organization>
         </certificate>
         <price>12</price>
         <dosage>500</dosage>
@@ -22,13 +22,13 @@
     <pill id="m2">
         <name>Azitromicin</name>
         <pharm>BZMP</pharm>
-        <group>antibiotic</group>
+        <group>ANTIBIOTIC</group>
         <analog>Azimed</analog>
         <certificate>
             <certificate-number>c412356</certificate-number>
-            <dateOfIssue>2019-03</dateOfIssue>
-            <dateOfExpiration>2022-06</dateOfExpiration>
-            <registeringOrganization>org2</registeringOrganization>
+            <date-of-issue>2019-03</date-of-issue>
+            <date-of-expiration>2022-06</date-of-expiration>
+            <registering-organization>org2</registering-organization>
         </certificate>
         <price>6</price>
         <dosage>500</dosage>
@@ -38,13 +38,13 @@
     <pill id="m3">
         <name>Amoksicar</name>
         <pharm>Pharmacar</pharm>
-        <group>antibiotic</group>
+        <group>ANALGETIC</group>
         <analog>Azimed</analog>
         <certificate>
             <certificate-number>z358</certificate-number>
-            <dateOfIssue>2020-11</dateOfIssue>
-            <dateOfExpiration>2023-02</dateOfExpiration>
-            <registeringOrganization>org3</registeringOrganization>
+            <date-of-issue>2020-11</date-of-issue>
+            <date-of-expiration>2023-02</date-of-expiration>
+            <registering-organization>org3</registering-organization>
         </certificate>
         <price>10</price>
         <dosage>1000</dosage>
@@ -54,13 +54,13 @@
     <pill id="m4">
         <name>Analgin</name>
         <pharm>BZMP</pharm>
-        <group>analgetic</group>
+        <group>ANALGETIC</group>
         <analog>Nimesil</analog>
         <certificate>
             <certificate-number>a456213</certificate-number>
-            <dateOfIssue>2020-10</dateOfIssue>
-            <dateOfExpiration>2022-12</dateOfExpiration>
-            <registeringOrganization>org4</registeringOrganization>
+            <date-of-issue>2020-10</date-of-issue>
+            <date-of-expiration>2022-12</date-of-expiration>
+            <registering-organization>org4</registering-organization>
         </certificate>
         <price>1</price>
         <dosage>500</dosage>
@@ -70,13 +70,13 @@
     <pill id="m5">
         <name>Supradin</name>
         <pharm>BayerConsumerCar</pharm>
-        <group>vitamins</group>
+        <group>VITAMINS</group>
         <analog>Pikovit</analog>
         <certificate>
             <certificate-number>v45678</certificate-number>
-            <dateOfIssue>2020-04</dateOfIssue>
-            <dateOfExpiration>2024-04</dateOfExpiration>
-            <registeringOrganization>org5</registeringOrganization>
+            <date-of-issue>2020-04</date-of-issue>
+            <date-of-expiration>2024-04</date-of-expiration>
+            <registering-organization>org5</registering-organization>
         </certificate>
         <price>17</price>
         <dosage>10</dosage>
@@ -86,13 +86,13 @@
     <sirup id="m6">
         <name>Pikovit</name>
         <pharm>KRKA</pharm>
-        <group>vitamins</group>
+        <group>VITAMINS</group>
         <analog>Rozavit</analog>
         <certificate>
             <certificate-number>v7531223</certificate-number>
-            <dateOfIssue>2020-05</dateOfIssue>
-            <dateOfExpiration>2023-12</dateOfExpiration>
-            <registeringOrganization>org6</registeringOrganization>
+            <date-of-issue>2020-05</date-of-issue>
+            <date-of-expiration>2023-12</date-of-expiration>
+            <registering-organization>org6</registering-organization>
         </certificate>
         <price>16</price>
         <volume>150</volume>
@@ -101,15 +101,16 @@
     <sirup id="m7">
         <name>Rozavit</name>
         <pharm>ECZON</pharm>
-        <group>vitamins</group>
+        <group>VITAMINS</group>
         <analog>Pikovit</analog>
         <certificate>
             <certificate-number>v412365</certificate-number>
-            <dateOfIssue>2020-11</dateOfIssue>
-            <dateOfExpiration>2024-06</dateOfExpiration>
-            <registeringOrganization>org7</registeringOrganization>
+            <date-of-issue>2020-11</date-of-issue>
+            <date-of-expiration>2024-06</date-of-expiration>
+            <registering-organization>org7</registering-organization>
         </certificate>
         <price>3</price>
         <volume>200</volume>
     </sirup>
+
 </medicins>
