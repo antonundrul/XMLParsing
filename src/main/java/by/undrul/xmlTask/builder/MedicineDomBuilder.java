@@ -2,6 +2,8 @@ package by.undrul.xmlTask.builder;
 
 import by.undrul.xmlTask.entity.*;
 import by.undrul.xmlTask.exception.MedicineException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -14,8 +16,9 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.time.YearMonth;
 
-public class MedicineDomBuilder extends AbstractMedicineBuilder{
+public class MedicineDomBuilder extends AbstractMedicineBuilder {
     private DocumentBuilder documentBuilder;
+    static Logger logger = LogManager.getLogger();
 
     public MedicineDomBuilder() throws MedicineException {
         super();
@@ -31,10 +34,12 @@ public class MedicineDomBuilder extends AbstractMedicineBuilder{
     @Override
     public void buildMedicins(String xmlPath) throws MedicineException {
 
+        logger.info("Method to build medicins from " + MedicineSaxBuilder.class + " called");
+
         Document document;
 
         try {
-            document=documentBuilder.parse(xmlPath);
+            document = documentBuilder.parse(xmlPath);
             Element root = document.getDocumentElement();
 
             String pillTag = MedicineXmlTag.PILL.toString();
@@ -57,7 +62,7 @@ public class MedicineDomBuilder extends AbstractMedicineBuilder{
                 medicins.add(medicine);
             }
         } catch (SAXException e) {
-           throw new MedicineException("Unable to parse XML file (" + xmlPath + ")", e);
+            throw new MedicineException("Unable to parse XML file (" + xmlPath + ")", e);
         } catch (IOException e) {
             throw new MedicineException("Unable to parse XML file (" + xmlPath + ")", e);
         }
@@ -65,7 +70,7 @@ public class MedicineDomBuilder extends AbstractMedicineBuilder{
     }
 
     private void buildEntity(Element element, AbstractMedicine medicine) {
-        // initializing abstract device
+
         String idAttribute = MedicineXmlAttribute.ID.toString();
         String pharmWebsiteAttribute = MedicineXmlAttribute.PHARM_WEBSITE.toString();
         String nameTag = MedicineXmlTag.NAME.toString();
@@ -101,10 +106,10 @@ public class MedicineDomBuilder extends AbstractMedicineBuilder{
         medicine.setPharm(pharm);
         medicine.setGroup(group);
         medicine.setAnalog(analog);
-        medicine.setCertificate(new Certificate(certificateNumber, dateOfIssue,dateOfExpiration,registeringOrganization));
+        medicine.setCertificate(new Certificate(certificateNumber, dateOfIssue, dateOfExpiration, registeringOrganization));
         medicine.setPrice(price);
 
-        // initializing concrete instances
+
         if (medicine.getClass() == Pill.class) {
             Pill pill = (Pill) medicine;
             String amountTag = MedicineXmlTag.AMOUNT.toString();

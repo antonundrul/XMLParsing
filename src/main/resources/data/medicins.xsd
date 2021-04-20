@@ -76,7 +76,7 @@
     </complexType>
 
 
-    <element name="medicine" type="tns:medicine" substitutionGroup="tns:medicine"/>
+    <element name="medicine" type="tns:medicine" abstract="true"/>
     <element name="pill" type="tns:pill" substitutionGroup="tns:medicine"/>
     <element name="sirup" type="tns:sirup" substitutionGroup="tns:medicine"/>
 

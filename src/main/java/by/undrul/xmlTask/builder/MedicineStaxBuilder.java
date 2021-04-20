@@ -2,6 +2,8 @@ package by.undrul.xmlTask.builder;
 
 import by.undrul.xmlTask.entity.*;
 import by.undrul.xmlTask.exception.MedicineException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamConstants;
@@ -9,22 +11,24 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 import javax.xml.transform.Source;
 import javax.xml.transform.stream.StreamSource;
-
-
 import java.time.YearMonth;
 import java.util.Optional;
 
 import static by.undrul.xmlTask.builder.MedicineXmlTag.SIRUP;
 
-public class MedicineStaxBuilder extends AbstractMedicineBuilder{
+public class MedicineStaxBuilder extends AbstractMedicineBuilder {
     private static final char HYPHEN = '-';
     private static final char UNDERSCORE = '_';
 
     private static final String PILL_TAG = MedicineXmlTag.PILL.toString();
     private static final String SIRUP_TAG = SIRUP.toString();
 
+    private static Logger logger = LogManager.getLogger();
+
     @Override
     public void buildMedicins(String xmlPath) throws MedicineException {
+        logger.info("Method to build medicins from " + MedicineSaxBuilder.class + " called");
+
         String name;
 
         try {
@@ -52,7 +56,6 @@ public class MedicineStaxBuilder extends AbstractMedicineBuilder{
                 }
             }
         } catch (XMLStreamException e) {
-            // IOException (including FileNotFoundException) causes XMLStreamException anyway
             throw new MedicineException("An error occurred during file reading: ", e);
         }
     }

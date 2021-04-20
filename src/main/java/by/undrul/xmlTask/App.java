@@ -17,26 +17,25 @@ import java.util.Set;
  */
 public class App 
 {
-    static Logger logger = LogManager.getLogger();
-
     public static void main( String[] args ) throws MedicineException {
 
-
         String path="./src/main/resources/data/medicins.xml";
-       /* MedicineDomBuilder medicineDomBuilder = (MedicineDomBuilder) MedicineBuilderFactory.createMedicineBuilder("DOM");
+
+        MedicineDomBuilder medicineDomBuilder = (MedicineDomBuilder) MedicineBuilderFactory.createMedicineBuilder("DOM");
         medicineDomBuilder.buildMedicins(path);
-        Set<AbstractMedicine> medicins = medicineDomBuilder.getMedicins();t
-        medicins.forEach(System.out::println);*/
+        Set<AbstractMedicine> medicinsDOM = medicineDomBuilder.getMedicins();
+        medicinsDOM.forEach(System.out::println);
 
         MedicineSaxBuilder medicineSaxBuilder = (MedicineSaxBuilder) MedicineBuilderFactory.createMedicineBuilder("SAX");
         medicineSaxBuilder.buildMedicins(path);
-        Set<AbstractMedicine> medicins1 = medicineSaxBuilder.getMedicineHandler().getMedicins();
-        medicins1.forEach(System.out::println);
+        Set<AbstractMedicine> medicinsSAX = medicineSaxBuilder.getMedicins();
+        medicinsSAX.forEach(System.out::println);
 
-        /*MedicineStaxBuilder medicineStaxBuilder = (MedicineStaxBuilder) MedicineBuilderFactory.createMedicineBuilder("STAX");
+
+        MedicineStaxBuilder medicineStaxBuilder = (MedicineStaxBuilder) MedicineBuilderFactory.createMedicineBuilder("STAX");
         medicineStaxBuilder.buildMedicins(path);
-        Set<AbstractMedicine> medicins2 = medicineStaxBuilder.getMedicins();
-        medicins2.forEach(System.out::println);*/
+        Set<AbstractMedicine> medicinsSTAX = medicineStaxBuilder.getMedicins();
+        medicinsSTAX.forEach(System.out::println);
 
 
     }

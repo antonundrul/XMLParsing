@@ -1,7 +1,5 @@
 package by.undrul.xmlTask.entity;
 
-import java.util.Objects;
-
 public class Sirup extends AbstractMedicine {
     private int volume;
 

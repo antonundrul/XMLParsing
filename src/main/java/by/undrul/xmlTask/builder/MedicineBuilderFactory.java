@@ -6,16 +6,19 @@ import org.apache.logging.log4j.Logger;
 
 public class MedicineBuilderFactory {
     private static Logger logger = LogManager.getLogger();
+
     private enum ParserType {
         DOM, SAX, STAX
     }
 
-    private MedicineBuilderFactory() { }
+    private MedicineBuilderFactory() {
+    }
 
     public static AbstractMedicineBuilder createMedicineBuilder(String parserType) throws MedicineException {
-         try{
+        logger.info("Method to create Medicins Builder called with parser: " + parserType);
+        try {
             ParserType type = ParserType.valueOf(parserType.toUpperCase());
-           return switch (type) {
+            return switch (type) {
                 case DOM -> new MedicineDomBuilder();
                 case SAX -> new MedicineSaxBuilder();
                 case STAX -> new MedicineStaxBuilder();

@@ -113,4 +113,144 @@
         <volume>200</volume>
     </sirup>
 
+    <pill id="m8">
+        <name>Ampicillin</name>
+        <pharm>Kievmedproduct</pharm>
+        <group>ANTIBIOTIC</group>
+        <analog>Azimed</analog>
+        <certificate>
+            <certificate-number>c456123</certificate-number>
+            <date-of-issue>2020-11</date-of-issue>
+            <date-of-expiration>2022-12</date-of-expiration>
+            <registering-organization>org8</registering-organization>
+        </certificate>
+        <price>12</price>
+        <dosage>10</dosage>
+        <amount>10</amount>
+    </pill>
+
+    <pill id="m9">
+        <name>Piperacillin</name>
+        <pharm>ECZON</pharm>
+        <group>ANTIBIOTIC</group>
+        <analog>Ampicillin</analog>
+        <certificate>
+            <certificate-number>p774532</certificate-number>
+            <date-of-issue>2019-09</date-of-issue>
+            <date-of-expiration>2025-12</date-of-expiration>
+            <registering-organization>org9</registering-organization>
+        </certificate>
+        <price>17</price>
+        <dosage>500</dosage>
+        <amount>6</amount>
+    </pill>
+    
+    <pill id="m10">
+        <name>Cefradin</name>
+        <pharm>KRKA</pharm>
+        <group>ANTIBIOTIC</group>
+        <analog>Cefaleksin</analog>
+        <certificate>
+            <certificate-number>c652314</certificate-number>
+            <date-of-issue>2018-03</date-of-issue>
+            <date-of-expiration>2023-05</date-of-expiration>
+            <registering-organization>org10</registering-organization>
+        </certificate>
+        <price>9</price>
+        <dosage>250</dosage>
+        <amount>15</amount>
+    </pill>
+    
+    <pill id="m11">
+        <name>Morphin</name>
+        <pharm>BayerConsumerCar</pharm>
+        <group>ANALGETIC</group>
+        <analog>Promedol</analog>
+        <certificate>
+            <certificate-number>m752148</certificate-number>
+            <date-of-issue>2020-11</date-of-issue>
+            <date-of-expiration>2023-06</date-of-expiration>
+            <registering-organization>org11</registering-organization>
+        </certificate>
+        <price>25</price>
+        <dosage>500</dosage>
+        <amount>5</amount>
+    </pill>
+    
+    <sirup id="m12">
+        <name>Ibuprofen</name>
+        <pharm>BayerConsumerCar</pharm>
+        <group>ANALGETIC</group>
+        <analog>Analgin</analog>
+        <certificate>
+            <certificate-number>i423659</certificate-number>
+            <date-of-issue>2019-12</date-of-issue>
+            <date-of-expiration>2025-01</date-of-expiration>
+            <registering-organization>org12</registering-organization>
+        </certificate>
+        <price>14</price>
+        <volume>250</volume>
+    </sirup>
+    
+    <sirup id="m13">
+        <name>Angiovit</name>
+        <pharm>KDK</pharm>
+        <group>VITAMINS</group>
+        <analog>Pikovit</analog>
+        <certificate>
+            <certificate-number>a02651</certificate-number>
+            <date-of-issue>2019-14</date-of-issue>
+            <date-of-expiration>2022-12</date-of-expiration>
+            <registering-organization>org13</registering-organization>
+        </certificate>
+        <price>23</price>
+        <volume>500</volume>
+    </sirup>
+    
+    <pill id="m14">
+        <name>Binafit Forte</name>
+        <pharm>BZMP</pharm>
+        <group>VITAMINS</group>
+        <analog>Pikovit</analog>
+        <certificate>
+            <certificate-number>b456892</certificate-number>
+            <date-of-issue>2020-10</date-of-issue>
+            <date-of-expiration>2025-01</date-of-expiration>
+            <registering-organization>org14</registering-organization>
+        </certificate>
+        <price>9</price>
+        <dosage>250</dosage>
+        <amount>20</amount>
+    </pill>
+
+    <pill id="m15">
+        <name>Vitanam</name>
+        <pharm>BZMP</pharm>
+        <group>VITAMINS</group>
+        <analog>Binafit Forte</analog>
+        <certificate>
+            <certificate-number>v45210</certificate-number>
+            <date-of-issue>2018-12</date-of-issue>
+            <date-of-expiration>2022-02</date-of-expiration>
+            <registering-organization>org15</registering-organization>
+        </certificate>
+        <price>13</price>
+        <dosage>250</dosage>
+        <amount>10</amount>
+    </pill>
+    
+    <sirup id="m16">
+        <name>Kvintalgin</name>
+        <pharm>BayerConsumerCar</pharm>
+        <group>ANALGETIC</group>
+        <analog>Analgin</analog>
+        <certificate>
+            <certificate-number>k456012</certificate-number>
+            <date-of-issue>2019-07</date-of-issue>
+            <date-of-expiration>2023-08</date-of-expiration>
+            <registering-organization>org16</registering-organization>
+        </certificate>
+        <price>17</price>
+        <volume>500</volume>
+    </sirup>
 </medicins>

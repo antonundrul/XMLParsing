@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.net.URL;
 
 public class MedicineXMLValidator {
-    private static final Logger logger = LogManager.getLogger();
+    private static Logger logger = LogManager.getLogger();
     private static final String SCHEMA_NAME = "medicins.xsd";
     private static final URL SCHEMA_URL;
 

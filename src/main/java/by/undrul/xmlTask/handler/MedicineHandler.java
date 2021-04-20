@@ -2,7 +2,10 @@ package by.undrul.xmlTask.handler;
 
 import by.undrul.xmlTask.builder.MedicineXmlAttribute;
 import by.undrul.xmlTask.builder.MedicineXmlTag;
-import by.undrul.xmlTask.entity.*;
+import by.undrul.xmlTask.entity.AbstractMedicine;
+import by.undrul.xmlTask.entity.MedicineGroup;
+import by.undrul.xmlTask.entity.Pill;
+import by.undrul.xmlTask.entity.Sirup;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.xml.sax.Attributes;
@@ -44,7 +47,7 @@ public class MedicineHandler extends DefaultHandler {
 
             String idAttribute = MedicineXmlAttribute.ID.toString();
             String pharmWebsiteAttribute = MedicineXmlAttribute.PHARM_WEBSITE.toString();
-            // added additional optional attribute to demonstrate proper parsing (including disordered attributes in xml)
+
 
             for (int i = 0; i < attributes.getLength(); i++) {
                 String attributeName = attributes.getQName(i);
@@ -123,4 +126,6 @@ public class MedicineHandler extends DefaultHandler {
                 .replace(HYPHEN, UNDERSCORE)
                 .toUpperCase();
     }
+
+
 }

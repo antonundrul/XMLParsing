@@ -1,7 +1,6 @@
 package by.undrul.xmlTask.entity;
 
 import java.time.YearMonth;
-import java.util.Objects;
 
 public class Certificate {
     private String certificateNumber;

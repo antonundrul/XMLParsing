@@ -1,7 +1,5 @@
 package by.undrul.xmlTask.entity;
 
-import java.util.Objects;
-
 public class Pill extends AbstractMedicine {
     private int amount;
     private int dosage;
